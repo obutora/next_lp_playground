@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -11,6 +15,20 @@ a {
   text-decoration: none;
 }
 
+br {
+  display: block;
+  content: "";
+  margin: 10px 0;
+}
+
 * {
   box-sizing: border-box;
+}
+
+.white-description{
+  @apply leading-relaxed tracking-wide text-gray-200 font-semibold text-xs antialiased
+}
+
+.gray-description{
+  @apply leading-relaxed tracking-wide text-gray-400 font-semibold text-xs antialiased
 }
