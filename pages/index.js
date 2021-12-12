@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -42,9 +43,11 @@ export default function Home() {
             </div>
             <div className='grow'></div>
             <p className='mr-3 text-white font-semibold text-sm tracking-widest'>brand movie</p>
-            <a href='/'>
-              <img className='mr-4' src='/logo.png' width={30} height={32} />
-            </a>
+            <Link href='/'>
+              <a>
+                <img className='mr-4' src='/logo.png' width={30} height={32} />
+              </a>
+            </Link>
 
           </div>
 
@@ -53,7 +56,7 @@ export default function Home() {
               {/* { NOTE: need animation} */}
               <p className='whitespace-nowrap text-8xl font-bold tracking-wider font-sans text-clip overflow-hidden bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 to-pink-700 opacity-30'>create wonder</p>
               <div className='p-5 mx-auto max-w-screen-sm'>
-                <p className='text-lg text-gray-200 font-bold tracking-tight'>bird and insect は、「面白い！」を作り、<br />
+                <p className='text-lg text-gray-200 font-bold tracking-tight'>bird and insect は、「面白い ! 」を作り、<br />
                   想いを共に描く image branding partner です。</p>
                 <p className='mt-4 text-gray-400 text-xs font-semibold'>
                   bird and insect is the image branding partner<br />
@@ -113,7 +116,7 @@ export default function Home() {
                 <span className='block mt-8' />
                 A product that is not yet known to the world.<br />
                 When we portrait its ideal out, new surprise is born.<br />
-                When we visualize its value, people's minds will be moved just like that.<br />
+                When we visualize its value, peoples minds will be moved just like that.<br />
                 <span className='block mt-8' />
                 Ideas are there from the beginning.<br />
                 Lights, colors, sounds, words, and time.<br />
@@ -127,9 +130,11 @@ export default function Home() {
               <div className='mt-6 float-right flex items-center bg-gradient-to-r from-cyan-500 to-fuchsia-900 max-w-full w-11/12 sm:min-w-fit sm:w-1/2 h-14'>
                 <div className='grow'></div>
                 <p className='mr-3 text-white font-semibold text-sm tracking-widest'>about us</p>
-                <a href='/'>
-                  <img className='mr-4' src='/logo.png' width={30} height={32} />
-                </a>
+                <Link href='/'>
+                  <a>
+                    <img className='mr-4' src='/logo.png' width={30} height={32} />
+                  </a>
+                </Link>
 
               </div>
 
@@ -155,9 +160,11 @@ export default function Home() {
                   <div className='absolute -left-7 mt-6 flex items-center bg-gradient-to-r from-cyan-500 to-fuchsia-900 w-11/12 sm:min-w-fit sm:w-1/2 h-14'>
                     <div className='grow'></div>
                     <p className='mr-3 text-white font-semibold text-sm'>what is image branding</p>
-                    <a href='/'>
-                      <img className='mr-4' src='/logo.png' width={30} height={32} />
-                    </a>
+                    <Link href='/'>
+                      <a>
+                        <img className='mr-4' src='/logo.png' width={30} height={32} />
+                      </a>
+                    </Link>
 
                   </div>
                 </div>
@@ -178,9 +185,11 @@ export default function Home() {
                 <div className='absolute bottom-0 right-0 mt-10 flex items-center bg-gradient-to-r from-cyan-500 to-fuchsia-900 w-11/12 sm:min-w-fit sm:w-1/2 h-14'>
                   <div className='grow'></div>
                   <p className='mr-3 text-white font-semibold text-sm'>services</p>
-                  <a href='/'>
-                    <img className='mr-4' src='/logo.png' width={30} height={32} />
-                  </a>
+                  <Link href='/'>
+                    <a>
+                      <img className='mr-4' src='/logo.png' width={30} height={32} />
+                    </a>
+                  </Link>
                 </div>
                 <span className='block pb-12' />
               </div>
@@ -312,7 +321,7 @@ export default function Home() {
             <p className='text-xs font-semibold tracking-wider'>〒150-0011 <br />東京都渋谷区渋谷2丁目21-1</p>
             <p className='mt-4 text-xs text-gray-600 tracking-wider'>3rd Suga Building 2F, 1-42-5 Akatsutsumi,<br />
               Satagaya-ku, Tokyo</p>
-            <p className='my-8 text-xs font-semibold tracking-wider'>TEL：03-5355-7272</p>
+            <p className='my-8 text-xs font-semibold tracking-wider'>TEL:03-5355-7272</p>
           </div>
 
           <div className='address mt-12 leading-loose'>
