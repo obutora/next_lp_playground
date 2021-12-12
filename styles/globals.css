@@ -32,3 +32,7 @@ br {
 .gray-description{
   @apply leading-relaxed tracking-wide text-gray-400 font-semibold text-xs antialiased
 }
+
+.dark-filter {
+  @apply absolute top-0 w-full h-72 backdrop-filter backdrop-brightness-50 bg-gray-400/20 hover:backdrop-brightness-100
+}
