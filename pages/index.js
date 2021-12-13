@@ -45,19 +45,37 @@ export default function Home() {
 
     // textを横に流すアニメーション
     const rollText = document.querySelector('.rollText');
-    gsap.fromTo(
+    // gsap.fromTo(
+    //   rollText,
+    //   {
+    //     duration: 30,
+    //     x: '100%',
+    //     repeat: -1,
+    //   },
+    //   {
+    //     duration: 30,
+    //     x: '-100%',
+    //     repeat: -1,
+    //   }
+    // )
+
+    gsap.from(
       rollText,
       {
-        duration: 30,
-        x: '100%',
-        repeat: -1,
-      },
-      {
-        duration: 30,
-        x: '-100%',
-        repeat: -1,
-      }
+        scrollTrigger: {
+          trigger: rollText,
+          start: "center 75%",
+          end: "bottom 50%",
+          scrub: 2,
+          // markers: true,
+          ease: 'power4.out',
+        },
+        x: '+=300',
+      }, {
+    }
     )
+
+
 
     // rgbの光源をランダムに動かすアニメーション
     const tl = gsap.timeline({
@@ -79,16 +97,16 @@ export default function Home() {
     })
 
     tl
-      .to('.movingLight1', { x: '120%', duration: 4, scale: 1 })
-      .to('.movingLight1', { y: '100%', duration: 4, scale: 1 })
-      .to('.movingLight1', { x: '0%', duration: 4, scale: 1 })
-      .to('.movingLight1', { y: '0%', duration: 4, scale: 1 })
+      .to('.movingLight1', { x: '100%', duration: 8, scale: 1, ease: 'power4.out' })
+      .to('.movingLight1', { y: '100%', duration: 8, scale: 1, ease: 'power4.out' })
+      .to('.movingLight1', { x: '0%', duration: 8, scale: 1, ease: 'power4.out' })
+      .to('.movingLight1', { y: '0%', duration: 8, scale: 1, ease: 'power4.out' })
 
     tl2
-      .to('.movingLight2', { y: '100%', duration: 4.1, scale: 1 })
-      .to('.movingLight2', { x: '-80%', duration: 4.1, scale: 1 })
-      .to('.movingLight2', { y: '20%', duration: 4.1, scale: 1 })
-      .to('.movingLight2', { x: '100%', duration: 4.1, scale: 1 })
+      .to('.movingLight2', { y: '100%', duration: 8.1, scale: 1, ease: 'power4.out' })
+      .to('.movingLight2', { x: '-100%', duration: 8.1, scale: 1, ease: 'power4.out' })
+      .to('.movingLight2', { y: '0%', duration: 8.1, scale: 1, ease: 'power4.out' })
+      .to('.movingLight2', { x: '100%', duration: 8.1, scale: 1, ease: 'power4.out' })
 
 
     // back imageのopacityを変化させるアニメーション
@@ -101,11 +119,10 @@ export default function Home() {
           y: -10,
           scrollTrigger: {
             trigger: image,
-            // markers: true,
-            start: 'top 75%', //object viewport
+            start: 'top 80%', //object viewport
             end: 'bottom 50%',
             ease: 'power4.out',
-            scrub: true, //number or bool
+            scrub: 1, //number or bool
           }
         })
     })
@@ -148,8 +165,8 @@ export default function Home() {
       </Head>
 
       <main className='overflow-auto'>
-        <div className='relative -z-10'>
-          <img className='object-scale-fill h-screen w-screen bg-gray-600' src="/icatch.jpg" alt="bg-icatch" />
+        <div className='relative z-0'>
+          <img className='object-scale-fill h-screen w-screen' src="/icatch.jpg" alt="bg-icatch" />
           <div className='flex justify-between'>
             <img className='absolute left-7 top-7' src='logo.png' alt='logo' width={30} height={32} />
             <img className='absolute right-7 top-7' src='menu_icon.png' alt='logo' width={28} height={8} />
@@ -171,28 +188,29 @@ export default function Home() {
           </p>
         </div>
 
-        <div className='bg-gray-900 relative -z-10'>
-          <div className='z-20 absolute -top-5 flex items-center bg-gradient-to-r from-cyan-500 to-fuchsia-900 w-11/12 sm:min-w-fit sm:w-1/2 h-14'>
-            <div className="ml-7 w-16 mr-8 bg-gray-700 rounded-full opacity-40 h-0.5 dark:bg-gray-700">
-              <div className="bg-gray-100 h-0.5 rounded-full w-2/3" ></div>
-            </div>
-            <div className='grow'></div>
-            <p className='mr-3 text-white font-semibold text-sm tracking-widest'>brand movie</p>
-            <Link href='/'>
-              <a>
-                <img className='mr-4' src='/logo.png' width={30} height={32} />
-              </a>
-            </Link>
-
+        <div className='z-20 absolute -bottom-5 flex items-center bg-gradient-to-r from-cyan-500 to-fuchsia-900 w-11/12 sm:min-w-fit sm:w-1/2 h-14'>
+          <div className="ml-7 w-16 mr-8 bg-gray-700 rounded-full opacity-40 h-0.5 dark:bg-gray-700">
+            <div className="bg-gray-100 h-0.5 rounded-full w-2/3" ></div>
           </div>
+          <div className='grow'></div>
+          <p className='mr-3 text-white font-semibold text-sm tracking-widest'>brand movie</p>
+          <Link href='/'>
+            <a>
+              <img className='mr-4' src='/logo.png' width={30} height={32} />
+            </a>
+          </Link>
 
+        </div>
+
+
+
+        <div className='bg-gray-900 relative -z-10'>
           <div className='message'>
-            <div className='absolute'>
-              <div className='absolute top-0 left-0 backdrop-blur-3xl w-screen -z-20' style={{ height: '1200px' }}></div>
-              <div className='movingLight1 absolute top-0 -left-40 bg-gradient-to-r from-purple-600/10 via-violet-500-400/30 to-purple-600/10 rounded-full -z-30' style={{ width: '450px', height: '450px' }}></div>
-              <div className='movingLight2 absolute top-20 left-40 bg-gradient-to-r from-sky-600/10 via-blue-400-400/30 to-sky-600/10 rounded-full -z-30' style={{ width: '500px', height: '500px' }}></div>
+            <div className='relative'>
+              <div className='fixed top-0 left-0 backdrop-blur-2xl w-screen -z-20' style={{ height: '100%' }}></div>
+              <div className='movingLight1 fixed top-0 -left-40 bg-gradient-to-r from-purple-600/10 via-violet-500-400/30 to-purple-600/10 rounded-full -z-30' style={{ width: '100%', height: '100%' }}></div>
+              <div className='movingLight2 fixed top-20 left-40 bg-gradient-to-r from-sky-600/10 via-blue-400-400/30 to-sky-600/10 rounded-full -z-30' style={{ width: '100%', height: '100%' }}></div>
             </div>
-
             <div className='pt-32 pb-24'>
               {/* { NOTE: need animation} */}
               <p className='rollText whitespace-nowrap text-8xl font-bold tracking-wider font-sans bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 to-pink-700 opacity-30' style={{ width: '800px' }}>create wonder</p>
@@ -379,7 +397,7 @@ export default function Home() {
           <p className='text-2xl mt-12 text-center font-mono font-semibold mb-24'>click to explore</p>
         </div>
 
-        <div className='casestudy_ journal bg-stone-800'>
+        <div className='casestudy_ journal bg-stone-800 z-10'>
           <p className='pt-24  ml-7 text-gray-200 font-bold tracking-widest text-sm mb-7'>case study / interview</p>
 
           {/* NOTE:needs scale animation */}
@@ -469,7 +487,7 @@ export default function Home() {
           </div>
         </div>
 
-        <footer className='ml-7'>
+        <footer className='ml-7 z-30 bg-white'>
           <div className='title'>
             <p className='text-2xl font-semibold tracking-wide font-mono'>bird and insect ltd.</p>
             <p className='mt-2 font-semibold font-sans text-sm'>contact</p>
